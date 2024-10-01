@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Removal Form</title>
+</head>
+<body>
+    <h1>Remove Product</h1>
+    <form action="index.php" method="post">
+        <label for="product_id">Product ID:</label>
+        <input type="text" id="product_id" name="product_id" required>
+        <input type="submit" value="Remove Product">
+    </form>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product Form</title>
+</head>
+<body>
+    <h1>Add Product</h1>
+    <form action="add_product.php" method="post">
+        <label for="product_id">Product ID:</label>
+        <input type="text" id="product_id" name="product_id" required><br><br>
+        
+        <label for="cost_per_unit">Cost Per Unit:</label>
+        <input type="text" id="cost_per_unit" name="cost_per_unit" required><br><br>
+        
+        <label for="quantity_in_stock">Quantity In Stock:</label>
+        <input type="text" id="quantity_in_stock" name="quantity_in_stock" required><br><br>
+        
+        <input type="submit" value="Add Product">
+    </form>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Quantity in Stock Form</title>
+</head>
+<body>
+    <h1>Update Quantity in Stock</h1>
+    <form action="update_quantity.php" method="post">
+        <label for="product_id">Product ID:</label>
+        <input type="text" id="product_id" name="product_id" required><br><br>
+        
+        <label for="new_quantity">New Quantity in Stock:</label>
+        <input type="text" id="new_quantity" name="new_quantity" required><br><br>
+        
+        <input type="submit" value="Update Quantity">
+    </form>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Products</title>
+</head>
+<body>
+    <h1>View Products</h1>
+    <form action="view_products.php" method="post">
+        <input type="submit" value="View Products">
+    </form>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Clients</title>
+</head>
+<body>
+    <h1>View Clients</h1>
+    <form action="view_clients.php" method="post">
+        <input type="submit" value="View Clients">
+    </form>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Client</title>
+</head>
+<body>
+    <h1>Edit Client</h1>
+    <form action="edit_client.php" method="post">
+        <label for="client_id">Select Client ID:</label>
+        <select id="client_id" name="client_id">
+           
+            // Display client IDs as options in the select dropdown
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<option value='" . $row["ClientID"] . "'>" . $row["ClientID"] . "</option>";
+                }
+            } else {
+                echo "<option value=''>No clients found</option>";
+            }
+
+            // Close connection
+            $conn->close();
+            ?>
+        </select><br><br>
+        
+        <input type="submit" value="Edit Client">
+    </form>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Client</title>
+</head>
+<body>
+    <h1>Delete Client</h1>
+    <form action="delete_client.php" method="post">
+        <label for="client_id">Client ID:</label>
+        <input type="text" id="client_id" name="client_id" required><br><br>
+        <input type="submit" value="Delete Client">
+    </form>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Client</title>
+</head>
+<body>
+    <h1>Add Client</h1>
+    <form action="add_client.php" method="post">
+        <label for="client_id">Client ID:</label>
+        <input type="text" id="client_id" name="client_id" required><br>
+        <label for="number_of_orders">Number Of Orders:</label>
+        <input type="text" id="number_of_orders" name="number_of_orders" required><br>
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" required><br>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required><br>
+        <label for="client_discount">Client Discount:</label>
+        <input type="text" id="client_discount" name="client_discount" required><br><br>
+        <input type="submit" value="Add Client">
+    </form>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Product Orders</title>
+</head>
+<body>
+    <h1>View Product Orders</h1>
+    <form action="view_product_orders.php" method="post">
+        <input type="submit" value="View Product Orders">
+    </form>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Order IDs</title>
+</head>
+<body>
+    <h1>View Order IDs</h1>
+    <form action="view_order_ids.php" method="post">
+        <input type="submit" value="View Order IDs">
+    </form>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Order</title>
+</head>
+<body>
+    <h1>Make Order</h1>
+    <form action="make_order.php" method="post">
+        <label for="product_id">Product ID:</label>
+        <input type="text" id="product_id" name="product_id" required><br>
+        <label for="cost_per_unit">Cost Per Unit:</label>
+        <input type="text" id="cost_per_unit" name="cost_per_unit" required><br>
+        <label for="discount">Discount (%):</label>
+        <input type="text" id="discount" name="discount" required><br><br>
+        <input type="submit" value="Place Order">
+    </form>
+</body>
+</html>
